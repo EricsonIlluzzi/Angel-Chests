@@ -13,7 +13,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    # AÑADIDO: Esto otorga los permisos necesarios para enviar el grafo de dependencias
     permissions:
       contents: write
       dependency-graph: write
@@ -31,6 +30,12 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    # Este paso ahora debería funcionar sin el error 403
     - name: Update dependency graph
-      uses: advanced-security/maven-dependency-submission-action@v4 # Sugiero usar @v4 para evitar warnings de deprecación
+      uses: advanced-security/maven-dependency-submission-action@v4
+
+    # NUEVO PASO: Sube el archivo .jar para que puedas descargarlo
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: AngelChests-Plugin  # Este será el nombre del archivo zip que descargarás
+        path: target/*.jar        # Sube todo lo que esté en la carpeta target que termine en .jar

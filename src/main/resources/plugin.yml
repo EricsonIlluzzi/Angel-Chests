@@ -1,0 +1,22 @@
+name: AngelChests
+version: 1.0.0
+main: com.angelchests.AngelChests
+api-version: 1.21
+author: YourName
+description: Sistema avanzado de tumbas inteligentes que protegen los items al morir
+softdepend: [PlaceholderAPI]
+
+commands:
+  angelchests:
+    description: Comando principal del plugin
+    usage: /angelchests <reload|list>
+    permission: angelchests.admin
+    aliases: [ac, graves]
+
+permissions:
+  angelchests.admin:
+    description: Acceso completo al plugin
+    default: op
+  angelchests.bypass:
+    description: Permite abrir cualquier tumba
+    default: op

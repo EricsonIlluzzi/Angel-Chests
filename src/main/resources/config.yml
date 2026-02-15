@@ -1,0 +1,21 @@
+# Angel Chests Configuration
+
+# Tiempo de expiración en segundos (900 = 15 minutos)
+expiration-time: 900
+
+# Porcentaje de experiencia a guardar (1.0 = 100%)
+experience-percentage: 1.0
+
+# Proteger tumba de explosiones
+explosion-protection: true
+
+# Altura mínima para spawn de tumba (evita el vacío)
+min-spawn-height: -60
+
+# Mensajes
+messages:
+  grave-created: "&7Tu tumba ha sido creada en &e{x}, {y}, {z}"
+  grave-recovered: "&aHas recuperado tus items de la tumba"
+  grave-expired: "&cTu tumba en &e{x}, {y}, {z} &cha expirado"
+  no-permission: "&cNo tienes permiso para abrir esta tumba"
+  grave-full-inventory: "&cTu inventario está lleno. Libera espacio primero"

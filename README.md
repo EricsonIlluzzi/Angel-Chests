@@ -522,6 +522,6 @@ Este proyecto está bajo la Licencia MIT. Ver [LICENSE](LICENSE) para más detal
 
 **⭐ Si te gusta el plugin, dale una estrella en GitHub ⭐**
 
-Hecho con ❤️ para la comunidad de Minecraft
+Hecho con mucho ❤️ para la comunidad de Minecraft
 
 </div>

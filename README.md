@@ -510,11 +510,6 @@ Este proyecto está bajo la Licencia MIT. Ver [LICENSE](LICENSE) para más detal
 
 ---
 
-## 📞 Soporte
-
-- **Discord**: [Tu servidor de Discord]
-- **GitHub Issues**: [Link a issues]
-- **SpigotMC**: [Link a recurso]
 
 ---
 

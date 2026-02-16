@@ -63,13 +63,11 @@ Cuando un jugador muere:
 - 👻 **Partículas de almas** flotando aleatoriamente
 - 📊 **Holograma** con countdown en tiempo real
 
-#### Al Abrir la Tumba
-- 🎵 Sonido de cofre + experiencia
-- 💫 Explosión de partículas de llamas y END_ROD
-
-#### Al Recuperar Items
+#### Al Recuperar Items (Clic Derecho)
 - 🏆 Partículas TOTEM_OF_UNDYING (efecto dorado épico)
-- 🎉 Sonido de level up + beacon desactivándose
+- 🎉 Sonido de level up + beacon desactivándose + cofre
+- ⚡ Transferencia instantánea de todos los items
+- 💫 Destrucción automática de la tumba
 
 #### Al Expirar
 - 💨 Humo y cenizas
@@ -79,8 +77,8 @@ Cuando un jugador muere:
 
 - **Protección de Rotura**: Solo el dueño o admins pueden romper la tumba
 - **Protección de Explosiones**: Inmune a creepers, TNT, etc.
-- **Protección de Acceso**: Solo el dueño puede abrir la tumba
-- **Validación de Inventario**: No puedes abrir si tu inventario está lleno
+- **Protección de Acceso**: Solo el dueño puede recuperar los items
+- **Validación de Inventario**: Verifica espacio suficiente antes de transferir items
 
 ### ⏱️ Sistema de Expiración
 
@@ -101,11 +99,12 @@ Cuando un jugador muere:
 
 ### 🎮 Interfaz de Usuario
 
-- **GUI personalizada** para recuperar items
-- Inventario virtual con todos tus items
-- Puedes tomar items uno por uno
-- La tumba se destruye solo cuando está vacía
-- Experiencia se devuelve al cerrar la GUI
+- **Recuperación instantánea** al hacer clic derecho
+- Todos los items se transfieren directamente a tu inventario
+- Validación de espacio disponible antes de abrir
+- La tumba se destruye automáticamente al recuperar
+- Experiencia se devuelve instantáneamente
+- Sin GUI, sin complicaciones - ¡rápido y eficiente!
 
 ---
 
@@ -310,15 +309,17 @@ Ver [PLACEHOLDERS.md](PLACEHOLDERS.md) para documentación completa.
    ↓
 9. Inicia Temporizador de Expiración
    ↓
-10. Jugador Hace Clic Derecho
+10. Jugador Hace Clic Derecho en Tumba
     ↓
-11. Abre GUI con Items
+11. Valida Permisos y Espacio en Inventario
     ↓
-12. Jugador Recupera Items
+12. Transfiere TODOS los Items Instantáneamente
     ↓
-13. Tumba se Destruye
+13. Devuelve XP
     ↓
-14. Devuelve XP
+14. Tumba se Destruye con Efectos
+    ↓
+15. Limpia Holograma y Datos
 ```
 
 ### Arquitectura Técnica
@@ -448,7 +449,7 @@ explosion-protection: false
 ✅ Sí, todas las tumbas se guardan en `data.yml` y se recargan automáticamente.
 
 ### ¿Qué pasa si mi inventario está lleno?
-⚠️ No podrás abrir la tumba hasta que liberes espacio. Recibirás un mensaje de advertencia.
+⚠️ No podrás recuperar la tumba hasta que liberes suficiente espacio. El plugin te dirá cuántos espacios necesitas.
 
 ### ¿Puedo tener múltiples tumbas?
 ✅ Sí, puedes tener tantas tumbas como muertes tengas (sin límite por defecto).
@@ -464,6 +465,9 @@ explosion-protection: false
 
 ### ¿Funciona en Minecraft 1.20?
 ✅ Sí, es compatible con 1.20+ (solo cambia la versión en el pom.xml).
+
+### ¿Puedo tomar items parcialmente de la tumba?
+❌ No, el sistema transfiere todos los items de una vez. Esto evita bugs de duplicación y simplifica la recuperación.
 
 ### ¿Necesito PlaceholderAPI?
 ❌ No es obligatorio, pero recomendado para usar placeholders.

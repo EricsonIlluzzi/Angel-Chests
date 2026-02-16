@@ -154,14 +154,16 @@ public class ChestInteractionListener implements Listener {
             return;
         }
         
-        // Verificar si quedan items
-        boolean hasItems = false;
+        // Actualizar la lista de items de la tumba con lo que queda en el inventario
+        grave.getItems().clear();
         for (ItemStack item : event.getInventory().getContents()) {
             if (item != null && item.getType() != Material.AIR) {
-                hasItems = true;
-                break;
+                grave.getItems().add(item.clone());
             }
         }
+        
+        // Verificar si quedan items
+        boolean hasItems = !grave.getItems().isEmpty();
         
         if (!hasItems) {
             // Dar experiencia
@@ -204,6 +206,9 @@ public class ChestInteractionListener implements Listener {
                 "&aHas recuperado tus items")
                 .replace("&", "§");
             player.sendMessage(message);
+        } else {
+            // Si quedan items, guardar el estado actualizado
+            plugin.getGraveManager().saveGraves();
         }
     }
 

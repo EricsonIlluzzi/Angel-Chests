@@ -28,17 +28,23 @@ public class GraveManager {
     public void createGrave(UUID ownerUUID, String ownerName, Location location, 
                            List<ItemStack> items, int experience) {
         long expirationTime = plugin.getConfig().getLong("expiration-time", 900);
-        Grave grave = new Grave(ownerUUID, ownerName, location, items, experience, expirationTime);
-        graves.put(location, grave);
+        // Normalizar la ubicación a coordenadas de bloque
+        Location normalized = location.getBlock().getLocation();
+        Grave grave = new Grave(ownerUUID, ownerName, normalized, items, experience, expirationTime);
+        graves.put(normalized, grave);
         saveGraves();
     }
 
     public Grave getGrave(Location location) {
-        return graves.get(location);
+        // Normalizar la ubicación a coordenadas de bloque para evitar problemas con decimales
+        Location normalized = location.getBlock().getLocation();
+        return graves.get(normalized);
     }
 
     public void removeGrave(Location location) {
-        graves.remove(location);
+        // Normalizar la ubicación a coordenadas de bloque
+        Location normalized = location.getBlock().getLocation();
+        graves.remove(normalized);
         saveGraves();
     }
 

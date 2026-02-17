@@ -508,7 +508,7 @@ Este proyecto está bajo la Licencia MIT. Ver [LICENSE](LICENSE) para más detal
 
 ## 🙏 Créditos
 
-- **Desarrollador**: [Ericson]
+- **Desarrollador**: [KevJuarez]
 - **Inspiración**: Sistemas de tumbas de servidores profesionales
 - **Librerías**: Spigot API, PlaceholderAPI
 
